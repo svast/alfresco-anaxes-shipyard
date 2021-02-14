@@ -1,3 +1,6 @@
+# This project has now been Archived
+
+
 # Welcome to Anaxes Shipyard
 
 The purpose of the Anaxes Shipyard project is to provide a set of guidelines, best practices and artifacts Alfresco engineering teams can use to produce deliverables ready for deployment into [Kubernetes](https://kubernetes.io).
@@ -36,7 +39,10 @@ To help new starters to get a Kubernetes Cluster up and running quickly we docum
 
 ## Pulling Protected Images
 
-For examples requiring protected Docker images at Quay.io your cluster must contain a secret with credentials to be able to pull those images. We documented setting the secrets [here](SECRETS.md).
+If a Helm chart needs to pull a protected image, instructions on how to create and use a secret can be found [here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry). For example, the following code would create a quay.io secret called quay-registry-secret:
+```
+kubectl create secret docker-registry quay-registry-secret --docker-server=quay.io --docker-username=<your-name> --docker-password=<your-pword> --namespace example
+```
 
 ## Check Out the Hello World App Example
 
